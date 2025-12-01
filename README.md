@@ -14,22 +14,22 @@ Este proyecto es un scraper para Idealista que obtiene información de pisos en 
 
 1. Crear un entorno virtual:
 
-```bash
-python -m venv .venv
-```
+    ```bash
+    python -m venv .venv
+    ```
 
 2. Instalar dependencias:
 
-```bash
-pip install -r requirements.txt
-```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 3. Configurar `config.py` con tus credenciales de MongoDB, Telegram y la URL de Idealista.
 
 ## Uso
 
-```bash
-python main.py
-```
+    ```bash
+    python main.py
+    ```
 
 El scraper se ejecuta periódicamente según `SCRAPING_INTERVAL` y guarda los datos en MongoDB, enviando notificaciones por Telegram.
