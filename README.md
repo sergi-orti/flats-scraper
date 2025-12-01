@@ -1,32 +1,35 @@
-Valencia Flats Scrapper
+# Valencia Flats Scrapper
 
 Este proyecto es un scraper para Idealista que obtiene información de pisos en Valencia y la guarda en MongoDB. También envía notificaciones a Telegram con los pisos nuevos encontrados.
 
-Tecnologías utilizadas
+## Tecnologías utilizadas
 
-Python 3.13
+* Python 3.13
+* Scrapy
+* BeautifulSoup
+* MongoDB
+* Telegram API
 
-Scrapy
+## Configuración
 
-BeautifulSoup
+1. Crear un entorno virtual:
 
-MongoDB
-
-Telegram API
-
-Configuración
-
-Crear un entorno virtual:
-
+```bash
 python -m venv .venv
+```
 
-Instalar dependencias:
+2. Instalar dependencias:
 
+```bash
 pip install -r requirements.txt
+```
 
-Configurar config.py con tus credenciales de MongoDB, Telegram y la URL de Idealista.
+3. Configurar `config.py` con tus credenciales de MongoDB, Telegram y la URL de Idealista.
 
-Uso
+## Uso
+
+```bash
 python main.py
+```
 
-El scraper se ejecuta periódicamente según SCRAPING_INTERVAL y guarda los datos en MongoDB, enviando notificaciones por Telegram.
+El scraper se ejecuta periódicamente según `SCRAPING_INTERVAL` y guarda los datos en MongoDB, enviando notificaciones por Telegram.
