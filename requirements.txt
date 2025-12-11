@@ -1,3 +1,4 @@
+autobahn
 requests~=2.32.5
 beautifulsoup4~=4.14.3
 pymongo~=4.15.4

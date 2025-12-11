@@ -16,9 +16,7 @@ logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 class IdealistaSpider(scrapy.Spider):
     name = "idealista"
     allowed_domains = ["idealista.com"]
-    start_urls = [
-    IDEALISTA_URL
-    ]
+    start_urls = [IDEALISTA_URL]
 
     custom_settings = {
         'DEFAULT_REQUEST_HEADERS': {
@@ -80,6 +78,10 @@ class IdealistaSpider(scrapy.Spider):
                     elif any(x in text for x in ['Planta', 'Bajo', 'Sótano', 'Entreplanta']):
                         floor = text
 
+                # --- SALTAR PISOS DE PRIMERA PLANTA ---
+                if re.search(r'Planta\s*1ª', floor, re.IGNORECASE):
+                    continue
+
                 bathrooms = ""
                 if bathrooms == "":
                     description = flat.find_all("p", {"class": "ellipsis"})
@@ -102,6 +104,7 @@ class IdealistaSpider(scrapy.Spider):
                 elif len(parts) == 2:
                     neighbour = parts[0].split(' en ')[-1]
                     town = parts[1]
+
 
                 # Crear item
                 item = ScrapyrealestateItem(
